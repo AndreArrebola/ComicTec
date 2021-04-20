@@ -12,6 +12,7 @@ import com.comictec.data.Gender;
 import com.comictec.data.Story;
 import com.comictec.data.StoryCollection;
 import java.math.BigDecimal;
+import java.util.Scanner;
 import java.util.Set;
 
 /**
@@ -23,8 +24,7 @@ public class Comictec {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void test(){
         Story cebo = new Story("O pior aniversário da minha vida", "Cebolinha vai para uma fazenda comemorar seu aniversário.", 30);
         Story maga = new Story("A Ouvinte", "Magali tenta se mostrar uma boa ouvinte para seus amigos. Mas e quando ela quer falar também?", 30);
         CharCollection.newChar(new CCharacter("Cebolinha", Gender.MALE, "Garoto que fala elado"));
@@ -42,9 +42,44 @@ public class Comictec {
         //System.out.println(CharCollection.getCharbyID(2).toString());
         System.out.println(cebo.toString());
         System.out.println(gibi.toString());
-
-        //System.out.println(cebo.toString());
+    }
+    public static void main(String[] args) {
+        //test();
+        int com=0;
+        Scanner prompt = new Scanner(System.in);
         
+        while(true){
+        System.out.println("Bem vindo ao Comictec! O que deseja fazer?\n"
+                + "1 - Adicionar\n"
+                + "2 - Exibir\n"
+                + "3 - Gerenciar\n"
+                + "4 - Sair");
+        try{
+            com = prompt.nextInt();
+            
+            
+        }catch(Exception ex){
+            System.out.println("Digite um número!");
+        }
+        switch(com){
+             case 1:
+                 CBManager.addPrompt(prompt);
+                 
+                 break;
+             case 2:
+                 System.out.println("Exibindo");
+                 break;
+             case 3:
+                 System.out.println("Gerenciando");
+                 break;
+             case 4: 
+                 System.out.println("Saindo");
+                 return;
+             default:
+                 System.out.println("Escolha de 1 a 4");
+            }
+        //System.out.println(cebo.toString());
+        }
     }
     
 }
